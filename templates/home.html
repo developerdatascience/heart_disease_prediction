@@ -9,35 +9,62 @@
     <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="login">
-        <h1>Heart Disease Prediction</h1>
+    <div class="container">
+        <div class="form">
+            <div class="form-login">
+                <span class="title">Heart Disease Prediction</span>
 
-        <form action="{{url_for('predict')}}" method="post">
-            <input type="text" name="AGE" placeholder="AGE" required="required"><br>
-            <input type="text" name="SEX" placeholder="SEX" required="required"><br>
-            <input type="text" name="CP" placeholder="CP" required="required"><br>
-            <input type="text" name="TRESTBPS" placeholder="TRESTBPS" required="required"><br>
-            <input type="text" name="CHOL" placeholder="CHOL" required="required"><br>
-            <input type="text" name="FBS" placeholder="FBS" required="required"><br>
-            <input type="text" name="RESTECG" placeholder="RESTECG" required="required"><br>
-            <input type="text" name="THALACH" placeholder="THALACH" required="required"><br>
-            <input type="text" name="EXANG" placeholder="EXANG" required="required"><br>
-            <input type="text" name="OLDPEAK" placeholder="OLDPEAK" required="required"><br>
-            <input type="text" name="SLOPE" placeholder="SLOPE" required="required"><br>
-            <input type="text" name="CA" placeholder="CA" required="required"><br>
-            <input type="text" name="THAL" placeholder="THAL" required="required"><br>
-
-            <br>
-            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-        </form>
-
-        <br>
-        <br>
-    </div>
-
-    {{prediction_text}}
-    
+                <form action="{{url_for('predict')}}" method="post">
+                    <div class="input-field">
+                        <input type="text" name="SEX" placeholder="SEX" required="required">
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="CP" placeholder="CP" required="required"><br>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="TRESTBPS" placeholder="TRESTBPS" required="required">
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="CHOL" placeholder="CHOL" required="required">
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="FBS" placeholder="FBS" required="required">
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="RESTECG" placeholder="RESTECG" required="required">
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="THALACH" placeholder="THALACH" required="required">
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="EXANG" placeholder="EXANG" required="required">
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="OLDPEAK" placeholder="OLDPEAK" required="required">
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="SLOPE" placeholder="SLOPE" required="required">
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="CA" placeholder="CA" required="required">
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="THAL" placeholder="THAL" required="required">
+                    </div> 
+                    
+                    <div class="input-field button">
+                        <input type="button" value="Predict">
+                    </div>
+                </form>
+                
+                <div class="login-signup">
+                    <h1>{{prediction_text}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>    
 </body>
 </html>
