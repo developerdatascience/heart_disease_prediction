@@ -5,6 +5,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
+import pickle
+
 
 
 # Data Collection and Data Processing
@@ -45,10 +47,11 @@ print("Accuracy score on training data: ", train_accuracy_score)
 X_test_prediction = model.predict(X_test)
 test_accuracy_score = accuracy_score(X_test_prediction, Y_test)
 
+print("Accuracy score on test data: ", test_accuracy_score)
 
 #Building Predictive System
 
-input_data = (65,0,2,140,417,1,0,157,0,0.8,2,1,2)
+input_data = (57,1,0,150,276,0,0,112,1,0.6,1,1,1)
 
 # Change the input data to numpy array
 input_data_as_numpy_array = np.asarray(input_data)
@@ -66,4 +69,11 @@ else:
     print("Person have heart disease")
 
 
+#Creatig a dump of model
+
+pickle.dump(model, open("logisticmodel.pkl", "wb"))
+
+pickle_model = pickle.load(open("logisticmodel.pkl", "rb"))
+
+print(pickle_model.predict(input_data_reshape)[0])
 
