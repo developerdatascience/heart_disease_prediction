@@ -1,7 +1,7 @@
 import json
 import pickle
 
-from flask import Flask, request, app, jsonify, url_for, render_template
+from flask import Flask, request, jsonify, url_for, render_template
 import pandas as pd
 import numpy as np
 
@@ -25,16 +25,16 @@ def predict_api():
     return jsonify(output[0])
 
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['POST', 'GET'])
 def predict():
-    data = [float(x) for x in request.form.values()]
+    data = [int(x) for x in request.form.values()]
     final_input=np.array(data).reshape(1, -1)
     print(final_input)
     output = logmodel.predict(final_input)[0]
     if output == 0:
-        return render_template("home.html", prediction_text="Person does not have heart disease")
+        return render_template("home.html", prediction_text="Safe")
     else:
-        render_template("home.html", prediction_text="Person have heart disease")
+        render_template("home.html", prediction_text="Not Safe")
 
 
 if __name__=="__main__":

@@ -10,7 +10,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #4070f4;
+    background: linear-gradient(-135deg,#71b7e6, #9b59b6);
 }
 
 .container{
@@ -18,7 +18,7 @@ body{
     max-width: 430px;
     width: 100%;
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -28,6 +28,7 @@ body{
     font-weight: 600;
     margin-left: 20px;
     margin-right: 20px;
+    color: indigo;
 }
 
 /* .form .title::before{
@@ -45,19 +46,21 @@ body{
     margin-top: 20px;
     margin-left: 10px;
     position: relative;
-    height: 40px;
+    /* height: 40px; */
     width: 100px;
 }
+
 
 .input-field input{
     height: 80%;
     width: 400%;
     padding: 0 15px;
-    border:none;
+    border:2px solid #ccc;
+    border-radius: 10px;
     outline: none;
     font-size: 16px;
     border-bottom: 2px solid #ccc;
-    border-top: 2px solid transparent;
+    border-top: 2px solid #ccc;
     text-align: center;
 }
 
@@ -66,21 +69,30 @@ body{
 }
 
 .form .button{
-    margin-top: 35px;
+    margin-top: 25px;
 }
 
 .form .button input{
     border: none;
     color: #fff;
     letter-spacing: 1px;
-    border-radius: 6px;
+    border-radius: 20px;
     background-color: #4070f4;
+    border-style: outset;
+    border-color: #e3e7f014;
+    font-size: 20px;
 }
+
+form .button input:hover{
+    cursor: pointer;
+    background: linear-gradient(-135deg,#71b7e6, #9b59b6);
+}
+
 
 .form .login-signup{
     margin-top: 30px;
     text-align: center;
     margin-bottom: 20px;
-    font-size: 15px;
+    font-size: 10px;
     font-family: 'Times New Roman', Times, serif;
 }

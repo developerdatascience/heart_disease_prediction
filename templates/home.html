@@ -9,7 +9,7 @@
     <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
     <div class="container">
@@ -17,7 +17,10 @@
             <div class="form-login">
                 <span class="title">Heart Disease Prediction</span>
 
-                <form action="{{url_for('predict')}}" method="post">
+                <form action='/predict' method="POST">
+                    <div class="input-field">
+                        <input type="text" name="AGE" placeholder="AGE" required="required">
+                    </div>
                     <div class="input-field">
                         <input type="text" name="SEX" placeholder="SEX" required="required">
                     </div>
@@ -61,7 +64,7 @@
                 </form>
                 
                 <div class="login-signup">
-                    <h1>{{prediction_text}}</h1>
+                    <h1>Prediction: {{ prediction_text }}</h1>
                 </div>
             </div>
         </div>
