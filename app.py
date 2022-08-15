@@ -28,7 +28,7 @@ def predict_api():
 @app.route('/predict', methods=['GET','POST', ])
 def predict():
     if request.method == "POST":
-        data = [int(x) for x in request.form.values()]
+        data = [float(x) for x in request.form.values()]
         final_input=np.array(data).reshape(1, -1)
         print(final_input)
         output = logmodel.predict(final_input)[0]
