@@ -25,16 +25,18 @@ def predict_api():
     return jsonify(output[0])
 
 
-@app.route('/predict', methods=['POST', 'GET'])
+@app.route('/predict', methods=['GET','POST', ])
 def predict():
-    data = [int(x) for x in request.form.values()]
-    final_input=np.array(data).reshape(1, -1)
-    print(final_input)
-    output = logmodel.predict(final_input)[0]
-    if output == 0:
-        return render_template("home.html", prediction_text="Safe")
-    else:
-        render_template("home.html", prediction_text="Not Safe")
+    if request.method == "POST":
+        data = [int(x) for x in request.form.values()]
+        final_input=np.array(data).reshape(1, -1)
+        print(final_input)
+        output = logmodel.predict(final_input)[0]
+        if output == 0:
+            result = "Person is Safe"
+        else:
+            result = "Person is Not Safe"
+    return render_template("home.html", prediction_text= result)
 
 
 if __name__=="__main__":
